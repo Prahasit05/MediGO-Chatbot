@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botpress Fullscreen Chat</title>
+
+    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+
+    <!-- Fullscreen Styling -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            background: #ffffff;
+        }
+
+        #webchat {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0);
+        }
+
+        /* iframe[name="webchat"] {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+        } */
+
+        /* .bpFab {
+            display: none !important;
+        } */
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 800px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="logo.jpg" alt="Logo" class="logo">
+
+    <!-- Fullscreen Chat Container -->
+    <div id="webchat"></div>
+
+    <script>
+        window.botpress.on("webchat:ready", () => {
+            window.botpress.open();
+        });
+
+        window.botpress.init({
+            botId: "aeef14d8-92ee-484d-b2a1-462234ad161e",
+            clientId: "1c7a8e35-54ab-4913-91f9-cd260e33854b",
+            selector: "#webchat",
+            openOnMount: true,
+            configuration: {
+                color: "#3B82F6",
+                themeMode: "light",
+                fontFamily: "inter",
+                radius: 4,  
+                showCloseButton: false,  
+                hideWidget: true,  
+            }
+        });
+    </script>
+
+</body>
+</html>
